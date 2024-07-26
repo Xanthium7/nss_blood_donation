@@ -42,7 +42,7 @@ function Signup() {
         <h1 className="text-4xl rubik-moonrocks-regular">രുധിരം</h1>
         <p className="text-xl font-semibold">രക്തദാനം മഹാദാനം</p>
         <Button
-          onClick={handelGoogleLogin}
+          // onClick={handelGoogleLogin}
           bg={"white"}
           border={"2"}
           borderColor={"#A61B1B"}
