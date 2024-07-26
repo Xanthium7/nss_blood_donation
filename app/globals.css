@@ -5,3 +5,9 @@
 body{
   overflow: hidden;
 }
+
+@layer components {
+  .center-items {
+    @apply flex justify-center items-center flex-col;
+  }
+}
