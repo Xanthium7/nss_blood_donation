@@ -1,6 +1,31 @@
+"use client";
 import Image from "next/image";
+import { useEffect } from "react";
+import { supabase } from "@/utils/supabase/supabaseClient";
+import { useRouter } from "next/navigation";
 
 export default function Home() {
+  const router = useRouter();
+
+  const cheksession = async () => {
+    //function to check if the user is logged in or not it will be null if not logged in
+    try {
+      const { data, error } = await supabase.auth.getSession();
+      return data;
+    } catch (e) {
+      console.log(e);
+    }
+  };
+
+  useEffect(() => {
+    cheksession().then((data) => {
+      console.log(data);
+      if (!data.session) {
+        router.push("/Signup");
+      }
+    });
+  }, []);
+
   return (
     <div className="h-full w-full relative flex flex-col ">
       <div className="banner flex flex-col gap-1 justify-center items-center  bg-[#A61B1B] h-1/5">
