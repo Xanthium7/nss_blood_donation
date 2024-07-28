@@ -11,6 +11,18 @@ const page = () => {
   const [password, setPassword] = useState("");
   const [conPassword, setConPassword] = useState("");
 
+  const setUserData = async (user) => {
+    const { data, error } = await supabase
+      .from("users")
+      .insert([{ id: user.id, phone: 23467348374 }])
+      .select();
+    if (error) {
+      console.log("Error inserting user data:", error.message);
+    } else {
+      console.log("User data inserted successfully:", data);
+    }
+  };
+
   const signUp = async (e) => {
     e.preventDefault(); // Prevent default form submission
     if (password !== conPassword) {
@@ -18,20 +30,19 @@ const page = () => {
       return;
     }
 
-    try {
-      let { data, error } = await supabase.auth.signUp({
-        email: email,
-        password: password,
-      });
+    let { data, error } = await supabase.auth.signUp({
+      email: email,
+      password: password,
+    });
 
-      if (error) {
-        console.log("Error signing up:", error.message);
-      } else {
-        console.log("Sign up successful:", data);
-        router.push("/success"); // Redirect to a success page
-      }
-    } catch (err) {
-      console.log(err);
+    if (error) {
+      console.log("Error signing up:", error.message);
+    } else {
+      // const user = await supabase.auth.getSession();
+      // console.log(user);
+      console.log("Sign up successful:", data);
+      setUserData(data.user);
+      // router.push("/success"); // Redirect to a success page
     }
   };
   return (
