@@ -14,7 +14,7 @@ const page = () => {
   const signUp = async (e) => {
     e.preventDefault(); // Prevent default form submission
     if (password !== conPassword) {
-      console.log("Passwords do not match");
+      console.log("Passwords do not match!");
       return;
     }
 
