@@ -3,18 +3,14 @@ import React from "react";
 import Image from "next/image";
 import Button from "@/app/components/Button/Button";
 import { supabase } from "@/utils/supabase/supabaseClient";
+import { useRouter } from "next/navigation";
 
 function Signup() {
-  const handelGoogleLogin = async () => {
-    try {
-      const { data, error } = await supabase.auth.signInWithOAuth({
-        provider: "google",
-        options: {},
-      });
-    } catch (e) {
-      console.log(e);
-    }
+  const router = useRouter();
+  const redirect_create_user = () => {
+    router.push("Signup/create_user");
   };
+
   return (
     <div className="bg-primary-bg flex flex-col justify-center min-h-screen">
       <div className="center-items h-full gap-5 bg-blue-50 grow">
@@ -43,23 +39,8 @@ function Signup() {
           color={"white"}
           text={"Create Account"}
           width={"90"}
+          onClick={redirect_create_user}
         />
-        <button
-          onClick={handelGoogleLogin}
-          class="px-4 py-2 border flex gap-2 border-slate-200 dark:border-slate-700 rounded-lg hover:shadow transition duration-150"
-        >
-          <Image
-            class="w-6 h-6"
-            height={24}
-            width={24}
-            src="https://www.svgrepo.com/show/475656/google-color.svg"
-            loading="lazy"
-            alt="google logo"
-          ></Image>
-          <span className="text-black hover:font-semibold">
-            Login with Google
-          </span>
-        </button>
       </div>
       <div className="bg-[#A61B1B] p-8 center-items text-white">
         "ഒരു NSS യൂണിറ്റ്: 264 പദ്ധതി ”

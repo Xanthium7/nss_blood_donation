@@ -1,6 +1,15 @@
+"use client";
+
 import React from "react";
+import { useRouter } from "next/navigation";
+import { RedirectStatusCode } from "next/dist/client/components/redirect-status-code";
 
 function homeLayout({ children }) {
+  const router = useRouter();
+  const redirect_profile = () => {
+    router.push("/profile");
+  };
+
   return (
     <div>
       <main className="h-screen w-screen">
@@ -13,7 +22,7 @@ function homeLayout({ children }) {
             <div>Home</div>
             <div>Request</div>
             <div>Certificate</div>
-            <div>Profile</div>
+            <div onClick={redirect_profile}>Profile</div>
           </div>
         </div>
       </main>
