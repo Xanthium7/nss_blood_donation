@@ -22,7 +22,12 @@ const page = () => {
       <div className="w-full flex flex-col gap-20">
         <div className="header w-full h-[30vh] bg-[#A61B1B]">
           <div className="icons flex text-white  justify-between px-10 pt-6 w-full ">
-            <FaAngleLeft className="scale-150" />
+            <FaAngleLeft
+              className="scale-150 cursor-pointer"
+              onClick={() => {
+                router.replace("/");
+              }}
+            />
             <MdModeEdit className="scale-150" />
           </div>
           <div className="details flex flex-col w-full h-full justify-center items-center gap-5">
@@ -40,25 +45,26 @@ const page = () => {
         </div>
         <div className="flex flex-col gap-5 ">
           <div className="flex justify-around">
-            <h1 className="text-left">Name</h1>
-            <h1>:</h1>
-            <h1>Deepak</h1>
+            <div className="flex flex-col gap-6">
+              <h1 className="text-left">Name</h1>
+              <h1 className="text-left">Age </h1>
+              <h1 className="text-left">Blood Group</h1>
+              <h1 className="text-left">Weight</h1>
+            </div>
+            <div className="flex flex-col gap-6">
+              <h1 className="text-center">:</h1>
+              <h1 className="text-center">:</h1>
+              <h1 className="text-center">:</h1>
+              <h1 className="text-center">:</h1>
+            </div>
+            <div className="flex flex-col gap-6">
+              <h1 className="text-left">Deepak</h1>
+              <h1 className="text-left">24</h1>
+              <h1 className="text-left">B+</h1>
+              <h1 className="text-left">75 KG</h1>
+            </div>
           </div>
-          <div className="flex justify-around">
-            <h1 className="">Age</h1>
-            <h1>:</h1>
-            <h1>24</h1>
-          </div>
-          <div className="flex justify-around">
-            <h1>BloodGroup</h1>
-            <h1>:</h1>
-            <h1>A+</h1>
-          </div>
-          <div className="flex justify-around">
-            <h1>Weight</h1>
-            <h1>:</h1>
-            <h1>70KG</h1>
-          </div>
+
           <div className="flex justify-center rounded-full mt-10">
             <button
               onClick={logOut}

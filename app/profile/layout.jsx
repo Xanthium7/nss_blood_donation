@@ -8,7 +8,7 @@ import { LuListTodo } from "react-icons/lu";
 import { IoHeartOutline } from "react-icons/io5";
 import { FaRegUser } from "react-icons/fa";
 
-function homeLayout({ children }) {
+function profileLayout({ children }) {
   const router = useRouter();
   const redirect_profile = () => {
     router.push("/profile");
@@ -23,21 +23,21 @@ function homeLayout({ children }) {
           style={{ "box-shadow": "0px -3px 8px #d4d4d4" }}
         >
           <div className="text-[#0C1A30] flex justify-around items-center w-full h-full">
-            <div className=" flex flex-col justify-center items-center gap-2 hover:text-[#DC143C] cursor-pointer  w-24 h-16 rounded-xl transition-all">
+            <div className=" flex flex-col justify-center items-center gap-2 hover:text-[#DC143C]  cursor-pointer  w-24 h-16 rounded-xl transition-all">
               <GoHome className="scale-[2]" />
               <h1 className="text-xs">Home</h1>
             </div>
-            <div className=" flex flex-col justify-center items-center gap-2 hover:text-[#DC143C] cursor-pointer  w-24 h-16 rounded-xl transition-all">
+            <div className=" flex flex-col justify-center items-center gap-2 hover:text-[#DC143C]   cursor-pointer  w-24 h-16 rounded-xl transition-all">
               <LuListTodo className="scale-[2]" />
               <h1 className="text-xs">REQUEST</h1>
             </div>
-            <div className=" flex flex-col justify-center items-center gap-2 hover:text-[#DC143C] cursor-pointer  w-24 h-16 rounded-xl transition-all">
+            <div className=" flex flex-col justify-center items-center gap-2 hover:text-[#DC143C]   cursor-pointer  w-24 h-16 rounded-xl transition-all">
               <IoHeartOutline className="scale-[2]" />
               <h1 className="text-xs">CERTIFICATE</h1>
             </div>
             <div
               onClick={redirect_profile}
-              className=" flex flex-col justify-center items-center gap-2 hover:text-[#DC143C] cursor-pointer  w-24 h-16 rounded-xl transition-all"
+              className=" flex flex-col justify-center items-center gap-2 hover:text-[#DC143C]   cursor-pointer  w-24 h-16 rounded-xl transition-all"
             >
               <FaRegUser className="scale-[2]" />
               <h1 className="text-xs">PROFILE</h1>
@@ -49,4 +49,4 @@ function homeLayout({ children }) {
   );
 }
 
-export default homeLayout;
+export default profileLayout;
