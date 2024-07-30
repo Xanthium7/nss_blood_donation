@@ -7,6 +7,10 @@ import { useRouter } from "next/navigation";
 
 function Signup() {
   const router = useRouter();
+  const redirect_login = () => {
+    router.push("signin");
+  };
+
   const redirect_create_user = () => {
     router.push("Signup/create_user");
   };
@@ -31,6 +35,7 @@ function Signup() {
           color={"#A61B1B"}
           text={"login"}
           width={"90"}
+          onClick={redirect_login}
         />
         <Button
           bg={"#A61B1B"}

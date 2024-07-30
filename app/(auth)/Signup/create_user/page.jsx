@@ -11,10 +11,22 @@ const page = () => {
   const [password, setPassword] = useState("");
   const [conPassword, setConPassword] = useState("");
 
-  const setUserData = async (user) => {
+  const setUserData = async (user, event) => {
+    console.log(event.date);
     const { data, error } = await supabase
       .from("users")
-      .insert([{ id: user.id, phone: 23467348374 }])
+      .insert([
+        {
+          id: user.id,
+          name: event.name.value,
+          email: event.email.value,
+          phone: event.phone.value,
+          gender: event.gender.value,
+          dob: event.date.value,
+          blood_grp: event.blood_group.value,
+          weight: event.weight.value,
+        },
+      ])
       .select();
     if (error) {
       console.log("Error inserting user data:", error.message);
@@ -41,7 +53,9 @@ const page = () => {
       // const user = await supabase.auth.getSession();
       // console.log(user);
       console.log("Sign up successful:", data);
-      setUserData(data.user);
+      setUserData(data.user, e.target);
+      // console.log(e.target.date.value);
+      router.replace("/");
       // router.push("/success"); // Redirect to a success page
     }
   };
@@ -128,6 +142,7 @@ const page = () => {
           <div>
             <h1 className="font-bold text-[#1C1B1F]">Blood Group</h1>
             <select
+              name="blood_group"
               className="h-12 w-full rounded-xl mt-2 focus:outline-[#b14141] "
               style={{ "box-shadow": "0px 5px 4px #a7a7a7" }}
             >
