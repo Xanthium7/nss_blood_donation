@@ -24,6 +24,16 @@ export default function Home() {
         router.push("/Signup");
       }
     });
+    const channels = supabase
+      .channel("custom-all-channel")
+      .on(
+        "postgres_changes",
+        { event: "*", schema: "public", table: "blood_request" },
+        (payload) => {
+          console.log("Change received!", payload);
+        }
+      )
+      .subscribe();
   }, []);
 
   return (
@@ -109,7 +119,7 @@ export default function Home() {
           </div>
           <div className="w-full flex justify-center items-center ">
             <button className="bg-[#938A8B] px-2  rounded-full  text-white">
-              See All
+              <a href="/all_requests">See All</a>
             </button>
           </div>
         </div>
