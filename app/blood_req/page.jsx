@@ -8,6 +8,20 @@ import { useRouter } from "next/navigation";
 
 const page = () => {
   const router = useRouter();
+
+  const sendEmail = async (e) => {
+    console.log(e);
+    const { data, error } = await supabase.functions.invoke("hello-world", {
+      body: { blood_grp: e.blood_group, units: e.units, send_to: e.send_to },
+    });
+    if (error) {
+      console.log("Error sending email:", error.message);
+    } else {
+      console.log("Email sent successfully:", data);
+      // router.replace("/");
+    }
+  };
+
   const setReqData = async (event) => {
     event.preventDefault();
     const {
@@ -35,7 +49,16 @@ const page = () => {
       console.log("Error inserting user data:", error.message);
     } else {
       console.log("request data inserted successfully:", data);
-      router.replace("/");
+      //code to send email
+      sendEmail(data[0]);
+      // const { data, error } = await supabase.functions.invoke("hello-world", {
+      //   body: { blood_grp: data.new.blood_group, units: data.new.units },
+      // });
+      // if (error) {
+      //   console.log("Error sending email:", error.message);
+      // } else {
+      //   router.replace("/");
+      // }
     }
   };
 
