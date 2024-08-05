@@ -73,7 +73,10 @@ export default function Home() {
             <h1 className="text-[#686868] font-semibold text-lg">REQUEST</h1>
           </div>
           <div
-            className="Blood Camp bg-[#FFFF] rounded-lg shadow-md h-[20vh] w-[30vw] flex flex-col gap-2 justify-center items-center"
+            onClick={() => {
+              router.push("/blood_camp");
+            }}
+            className="Blood Camp bg-[#FFFF] hover:cursor-pointer rounded-lg shadow-md h-[20vh] w-[30vw] flex flex-col gap-2 justify-center items-center"
             style={{ "box-shadow": "0px 5px 4px #a7a7a7" }}
           >
             <div className="icon max-w-[20vw] md:max-w-[8vw]  ">
