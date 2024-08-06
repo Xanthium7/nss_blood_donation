@@ -11,13 +11,8 @@ import { fetchUser } from "@/utils/apis/api";
 
 const page = () => {
   const [email, setEmail] = useState("");
-  const [user, setuser] = useState();
+  const [name, setName] = useState("");
   useEffect(() => {
-    // const user = async () => {
-    //   return await fetchUser();
-    // };
-    // console.log(user);
-
     const getUser = async () => {
       const {
         data: { user },
@@ -27,17 +22,27 @@ const page = () => {
         console.log("ERRORRR: ", error.message);
       } else {
         console.log(user.email);
-        setEmail(user.email);
-        console.log(email);
-        let { data: users, error } = await supabase
-          .from("users")
+        let { data: certificate_table, error1 } = await supabase
+          .from("certificate_table")
           .select("*")
-          .eq("email", email);
-        // console.log(user.email);
-        if (error) {
-          console.log("Error fetching user data:", error.message);
+          .eq("email", user.email);
+        // redirecting user if they havent registered in blood camp
+        console.log("porath", certificate_table[0].name);
+        if (typeof certificate_table[0].name == "undefined") {
+          router.push("/");
+          console.log("akath", certificate_table[0].name);
         } else {
-          console.log("User data fetched successfully:", users);
+          let { data: users, error } = await supabase
+            .from("users")
+            .select("*")
+            .eq("email", user.email);
+          // console.log(user.email);
+          if (error) {
+            console.log("Error fetching user data:", error.message);
+          } else {
+            setName(users[0].name);
+            console.log("User data fetched successfully:", users[0].name);
+          }
         }
       }
     };
@@ -52,16 +57,17 @@ const page = () => {
       return;
     }
 
-    html2canvas(certificate.current)
+    html2canvas(certificate.current, { scale: 2 })
       .then((canvas) => {
         const imgData = canvas.toDataURL("image/png");
-        const pdf = new jsPDF("l", "mm", "a4");
+
         const imgWidth = canvas.width;
         const imgHeight = canvas.height;
 
         // Convert dimensions to mm (assuming 96 DPI for canvas)
-        const imgWidthMm = (imgWidth * 25.4) / 96;
-        const imgHeightMm = (imgHeight * 25.4) / 96;
+        const imgWidthMm = (imgWidth * 18.4) / 96;
+        const imgHeightMm = (imgHeight * 18.4) / 96;
+        const pdf = new jsPDF("l", "mm", [imgWidthMm, imgHeightMm], true);
 
         // Add the image to the PDF with the same dimensions
         pdf.addImage(imgData, "PNG", 0, 0, imgWidthMm, imgHeightMm);
@@ -89,7 +95,7 @@ const page = () => {
             className="w-full h-[50vh] flex justify-center items-center "
             ref={certificate}
           >
-            <Certificate ref={certificate} name={"Oliva Rodrigo"} />
+            <Certificate ref={certificate} name={name} />
           </div>
 
           <div className="bg-[#c02424] px-3 py-1 rounded-md text-[#f8f0f0] transition-all hover:text-red-600 hover:bg-transparent">

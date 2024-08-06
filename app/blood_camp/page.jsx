@@ -12,7 +12,7 @@ const page = () => {
     const {
       data: { user },
     } = await supabase.auth.getUser();
-    console.log(user.id);
+    console.log(user.email);
     const { data, error } = await supabase
       .from("certificate_table")
       .insert([
@@ -21,6 +21,7 @@ const page = () => {
           year_study: event.target.year_study.value,
           branch: event.target.branch.value,
           date: event.target.date.value,
+          email: user.email,
         },
       ])
       .select();

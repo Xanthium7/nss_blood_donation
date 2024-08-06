@@ -8,7 +8,7 @@ import { LuListTodo } from "react-icons/lu";
 import { IoHeartOutline } from "react-icons/io5";
 import { FaRegUser } from "react-icons/fa";
 
-function homeLayout({ children }) {
+function certifLayout({ children }) {
   const router = useRouter();
   const redirect_profile = () => {
     router.push("/profile");
@@ -55,4 +55,4 @@ function homeLayout({ children }) {
   );
 }
 
-export default homeLayout;
+export default certifLayout;
