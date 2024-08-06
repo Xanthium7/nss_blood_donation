@@ -2,12 +2,47 @@
 import Certificate from "@/app/components/Certificate";
 import Heading from "@/app/components/Heading";
 import { useRouter } from "next/navigation";
-import React, { useRef } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import { FaAngleLeft } from "react-icons/fa6";
 import jsPDF from "jspdf";
 import html2canvas from "html2canvas";
+import { supabase } from "@/utils/supabase/supabaseClient";
+import { fetchUser } from "@/utils/apis/api";
 
 const page = () => {
+  const [email, setEmail] = useState("");
+  const [user, setuser] = useState();
+  useEffect(() => {
+    // const user = async () => {
+    //   return await fetchUser();
+    // };
+    // console.log(user);
+
+    const getUser = async () => {
+      const {
+        data: { user },
+        error,
+      } = await supabase.auth.getUser();
+      if (error) {
+        console.log("ERRORRR: ", error.message);
+      } else {
+        console.log(user.email);
+        setEmail(user.email);
+        console.log(email);
+        let { data: users, error } = await supabase
+          .from("users")
+          .select("*")
+          .eq("email", email);
+        // console.log(user.email);
+        if (error) {
+          console.log("Error fetching user data:", error.message);
+        } else {
+          console.log("User data fetched successfully:", users);
+        }
+      }
+    };
+    getUser();
+  }, []);
   const certificate = useRef();
   const router = useRouter();
 
