@@ -2,7 +2,7 @@
 import React from "react";
 import Image from "next/image";
 import Button from "@/app/components/Button/Button";
-import { supabase } from "@/utils/supabase/supabaseClient";
+// import { supabase } from "@/utils/supabase/supabaseClient";
 import { useRouter } from "next/navigation";
 
 function Signup() {

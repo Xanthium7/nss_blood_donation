@@ -3,7 +3,7 @@
 import React from "react";
 import Heading from "../components/Heading";
 import { supabase } from "@/utils/supabase/supabaseClient";
-import Button from "../components/Button/Button";
+// import Button from "../components/Button/Button";
 import { useRouter } from "next/navigation";
 
 const page = () => {
