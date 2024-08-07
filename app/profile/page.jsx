@@ -8,7 +8,11 @@ import { useRouter } from "next/navigation";
 
 const page = () => {
   const router = useRouter();
-  const [CurrentUserData, setCurrentUserData] = useState();
+
+  const [name, setname] = useState();
+  const [blood_grp, setblood_grp] = useState();
+  const [dob, setdob] = useState();
+  const [weight, setweight] = useState();
 
   useEffect(() => {
     const fetchdata = async (email) => {
@@ -16,30 +20,41 @@ const page = () => {
         .from("users")
         .select("*")
         .eq("email", email);
-      setCurrentUserData(users[0]);
-      console.log(CurrentUserData);
-      console.log(users[0]);
+      if (users && users.length > 0) {
+        setname(users[0].name);
+        setblood_grp(users[0].blood_grp);
+        setdob(users[0].dob);
+        setweight(users[0].weight);
+        console.log("state: ", users[0]);
+      } else {
+        console.log("No user found");
+      }
     };
+
     const fetchUser = async () => {
       const {
         data: { user },
       } = await supabase.auth.getUser();
-      console.log(user.email);
-      fetchdata(user.email);
+      if (user && user.email) {
+        console.log(user.email);
+        fetchdata(user.email);
+      } else {
+        console.log("No user email found");
+      }
     };
 
     fetchUser();
   }, []);
+
   const calculateAge = (dob) => {
     const birthDate = new Date(dob);
     const today = new Date();
+
     let age = today.getFullYear() - birthDate.getFullYear();
     const monthDifference = today.getMonth() - birthDate.getMonth();
+    const dayDifference = today.getDate() - birthDate.getDate();
 
-    if (
-      monthDifference < 0 ||
-      (monthDifference === 0 && today.getDate() < birthDate.getDate())
-    ) {
+    if (monthDifference < 0 || (monthDifference === 0 && dayDifference < 0)) {
       age--;
     }
 
@@ -71,13 +86,13 @@ const page = () => {
           <div className="details flex flex-col w-full h-full justify-center items-center gap-5">
             <div className="image_holder w-28 h-28 rounded-full">
               <img
-                src="https://picsum.photos/200"
+                src={`https://avatar.iran.liara.run/public/boy?username=""`}
                 alt="pfp"
                 className="rounded-full"
               />
             </div>
             <div className="text_holder text-white text-2xl font-semibold">
-              <h1>Deepak</h1>
+              <h1>{name}</h1>
             </div>
           </div>
         </div>
@@ -96,10 +111,10 @@ const page = () => {
               <h1 className="text-center">:</h1>
             </div>
             <div className="flex flex-col gap-6">
-              {/* <h1 className="text-left">{CurrentUserData.name}</h1>
-              <h1 className="text-left">{calculateAge(CurrentUserData.dob)}</h1>
-              <h1 className="text-left">{CurrentUserData.blood_grp}</h1>
-              <h1 className="text-left">{CurrentUserData.weight} KG</h1> */}
+              <h1 className="text-left">{name}</h1>
+              <h1 className="text-left">{calculateAge(dob)}</h1>
+              <h1 className="text-left">{blood_grp}</h1>
+              <h1 className="text-left">{weight} KG</h1>
             </div>
           </div>
 

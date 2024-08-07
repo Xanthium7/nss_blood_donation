@@ -18,7 +18,7 @@ const page = () => {
       console.log("Error sending email:", error.message);
     } else {
       console.log("Email sent successfully:", data);
-      // router.replace("/");
+      router.replace("/");
     }
   };
 
