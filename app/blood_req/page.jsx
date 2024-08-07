@@ -12,7 +12,15 @@ const page = () => {
   const sendEmail = async (e) => {
     console.log(e);
     const { data, error } = await supabase.functions.invoke("hello-world", {
-      body: { blood_grp: e.blood_group, units: e.units, send_to: e.send_to },
+      body: {
+        blood_grp: e.blood_group,
+        patient_name: e.name,
+        hospital_name: e.hospital_name,
+        bystander: e.bystander,
+        phone: e.phone,
+        units: e.units,
+        send_to: e.send_to,
+      },
     });
     if (error) {
       console.log("Error sending email:", error.message);
@@ -40,7 +48,7 @@ const page = () => {
           gender: event.target.gender.value,
           hospital_name: event.target.hospitalName.value,
           bystander: event.target.bystander.value,
-          phone: event.target.phoneNumber.value,
+          phone: event.target.phone.value,
           send_to: event.target.sendto.value,
         },
       ])
@@ -149,7 +157,7 @@ const page = () => {
         <div>
           <h1 className="font-bold text-[#1C1B1F]">Phone Number</h1>
           <input
-            name="phoneNumber"
+            name="phone"
             type="tel"
             className="h-12 w-full rounded-xl mt-2 focus:outline-[#b14141] p-5"
             style={{ boxShadow: "0px 5px 4px #a7a7a7" }}
