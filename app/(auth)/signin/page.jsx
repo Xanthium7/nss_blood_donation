@@ -16,7 +16,7 @@ function Signin() {
     });
     if (error) {
       console.log("Login faild:", error.message);
-      toast.error("Login faild");
+      toast.error(error.message);
     } else {
       console.log("User login successfully:", data);
       router.replace("/");
