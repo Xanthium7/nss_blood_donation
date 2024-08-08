@@ -25,7 +25,7 @@ function certifLayout({ children }) {
 
   return (
     <div>
-      <main className="h-screen w-screen">
+      <main className="h-screen w-screen bg-white">
         {children}
         <div
           className="footer-nav uppercase  w-full h-[8vh] translate-y-[-8vh]"

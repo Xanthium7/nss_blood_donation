@@ -70,7 +70,9 @@ export default function Home() {
             <div className="icon max-w-[12vw]  md:max-w-[6vw] ">
               <img className=" rounded-lg" src="/request.png" alt="request" />
             </div>
-            <h1 className="text-[#686868] font-semibold text-lg">REQUEST</h1>
+            <h1 className="text-[#686868] font-semibold text-lg text-center">
+              REQUEST
+            </h1>
           </div>
           <div
             onClick={() => {
@@ -86,7 +88,9 @@ export default function Home() {
                 alt="blood_camp"
               />
             </div>
-            <h1 className="text-[#686868] font-semibold text-lg">BLOOD CAMP</h1>
+            <h1 className="text-[#686868] font-semibold text-lg text-center">
+              BLOOD CAMP
+            </h1>
           </div>
         </div>
       </div>

@@ -31,7 +31,7 @@ function all_reqLayout({ children }) {
           className="footer-nav uppercase  w-full h-[8vh] translate-y-[-8vh]"
           style={{ "box-shadow": "0px -3px 8px #d4d4d4" }}
         >
-          <div className="text-[#0C1A30] flex justify-around items-center w-full h-full">
+          <div className="text-[#0C1A30] flex justify-around items-center w-full h-full bg-white">
             <div
               onClick={redirect_home}
               className=" flex flex-col justify-center items-center gap-2 hover:text-[#DC143C]  cursor-pointer  w-24 h-16 rounded-xl transition-all"
