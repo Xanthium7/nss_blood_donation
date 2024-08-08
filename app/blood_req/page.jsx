@@ -1,5 +1,5 @@
 "use client";
-
+import toast, { Toaster } from "react-hot-toast";
 import React from "react";
 import Heading from "../components/Heading";
 import { supabase } from "@/utils/supabase/supabaseClient";
@@ -10,7 +10,7 @@ const page = () => {
   const router = useRouter();
 
   const sendEmail = async (e) => {
-    console.log(e);
+    // console.log(e);
     const { data, error } = await supabase.functions.invoke("hello-world", {
       body: {
         blood_grp: e.blood_group,
@@ -24,8 +24,10 @@ const page = () => {
     });
     if (error) {
       console.log("Error sending email:", error.message);
+      toast.error("Error sending request");
     } else {
       console.log("Email sent successfully:", data);
+      toast.success("Request sent successfully");
       router.replace("/");
     }
   };
@@ -35,7 +37,7 @@ const page = () => {
     const {
       data: { user },
     } = await supabase.auth.getUser();
-    console.log(user.id);
+    // console.log(user.id);
     const { data, error } = await supabase
       .from("blood_request")
       .insert([
@@ -55,6 +57,7 @@ const page = () => {
       .select();
     if (error) {
       console.log("Error inserting user data:", error.message);
+      toast.error("Error inserting user data");
     } else {
       console.log("request data inserted successfully:", data);
       //code to send email
@@ -187,6 +190,7 @@ const page = () => {
           </button>
         </div>
       </form>
+      <Toaster position="bottom-center" />
     </div>
   );
 };
