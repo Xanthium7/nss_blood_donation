@@ -85,14 +85,16 @@ const page = () => {
                 <option selected disabled value="">
                   Select Branch
                 </option>
-                <option value="CSE">Computer Science</option>
-                <option value="CIVIL">Civil</option>
-                <option value="ELECTRICAL">Electrical</option>
-                <option value="MECHANICAL">Mechannical</option>
+                <option value="CIVIL">CIVIL</option>
+                <option value="MECH">MECH</option>
+                <option value="CS">CS</option>
+                <option value="CY">CY</option>
+                <option value="AI">CS AI</option>
+                <option value="AIDS">AI DS</option>
+                <option value="EEE">EEE</option>
                 <option value="EC">EC</option>
-                <option value="AI DS">AI DS</option>
-                <option value="BSH">Humanities</option>
-                <option value="CA">Computer Application</option>
+
+                <option value="MCA">MCA</option>
               </select>
             </div>
             <div>

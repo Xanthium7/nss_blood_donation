@@ -1,12 +1,38 @@
 "use client";
 import Image from "next/image";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { supabase } from "@/utils/supabase/supabaseClient";
 import { useRouter } from "next/navigation";
+import toast, { Toaster } from "react-hot-toast";
+import { MdWaterDrop } from "react-icons/md";
 
 export default function Home() {
   const router = useRouter();
+  const [AllBloodRequests, setAllBloodRequests] = useState([]);
+  const [loading, setLoading] = useState(true);
 
+  const get_all_req = async () => {
+    let { data: blood_request, error } = await supabase
+      .from("blood_request")
+      .select("*")
+      .range(0, 1);
+
+    if (error) {
+      console.error("Error fetching blood requests:", error);
+    } else {
+      setAllBloodRequests(blood_request);
+      setLoading(false);
+      console.log("Blood requests:", blood_request);
+    }
+  };
+
+  useEffect(() => {
+    get_all_req();
+  }, []);
+
+  useEffect(() => {
+    console.log("STATE: ", AllBloodRequests);
+  }, [AllBloodRequests]);
   const cheksession = async () => {
     //function to check if the user is logged in or not it will be null if not logged in
     try {
@@ -37,7 +63,8 @@ export default function Home() {
   }, []);
 
   return (
-    <div className="h-full w-full relative flex flex-col ">
+    <div className="h-screen w-screen relative flex flex-col ">
+      <Toaster position="top-center" reverseOrder={false} />
       <div className="banner flex flex-col gap-1 justify-center items-center  bg-[#A61B1B] h-1/5">
         <div>
           <h1
@@ -56,7 +83,7 @@ export default function Home() {
         </div>
       </div>
       <div
-        className="COA h-[30vh] mx-10  bg-[##FFFAFA]  shadow-md rounded-lg translate-y-[-2rem] z-30"
+        className="COA h-[30vh] mx-6  bg-[##FFFAFA]  shadow-md rounded-lg translate-y-[-2rem] z-30"
         style={{ "box-shadow": "0px 5px 4px #a7a7a7" }}
       >
         <div className="container w-full h-full flex bg-[#FFFAFA] rounded-lg justify-around items-center">
@@ -101,28 +128,43 @@ export default function Home() {
         <h1 className="text-[#A61B1B] font-semibold text-2xl pt-3 pl-3">
           Recent Requests
         </h1>
-        <div className="flex flex-col justify-between h-[80%] w-full">
-          <div className="container h-full w-full flex justify-between items-center px-4">
-            <div
-              className="bg-[#FFFF] p-4 rounded-lg"
-              style={{ "box-shadow": "0px 5px 4px #a7a7a7" }}
-            >
-              <p>Deepak</p>
-              <p className="text-[#A61B1B] font-semibold">A+ve</p>
-              <p> 2 Units</p>
-              <p>Kolencherry MOSC</p>
-              <p>Medical College</p>
-            </div>
-            <div
-              className="bg-[#FFFF] p-4 rounded-lg"
-              style={{ "box-shadow": "0px 5px 4px #a7a7a7" }}
-            >
-              <p>Deepak</p>
-              <p className="text-[#A61B1B] font-semibold">A+ve</p>
-              <p> 2 Units</p>
-              <p>Kolencherry MOSC</p>
-              <p>Medical College</p>
-            </div>
+        <div className="flex flex-col justify-between h-[80%] w-full ">
+          <div className="container h-full w-full flex justify-between items-center px-4 gap-3 py-4">
+            {!loading ? (
+              <>
+                <div
+                  className="bg-[#FFFF] p-4 rounded-lg w-1/2 h-full"
+                  style={{ "box-shadow": "0px 5px 4px #a7a7a7" }}
+                >
+                  <p>{AllBloodRequests[0].name}</p>
+                  <p className="text-[#A61B1B] font-semibold">
+                    {AllBloodRequests[0].blood_group}
+                  </p>
+                  <p>{AllBloodRequests[0].units} Units</p>
+
+                  <p>{AllBloodRequests[0].hospital_name}</p>
+                </div>
+                <div
+                  className="bg-[#FFFF] p-4 rounded-lg w-1/2 h-full"
+                  style={{ "box-shadow": "0px 5px 4px #a7a7a7" }}
+                >
+                  <p>{AllBloodRequests[1].name}</p>
+                  <p className="text-[#A61B1B] font-semibold">
+                    {AllBloodRequests[1].blood_group}
+                  </p>
+                  <p>{AllBloodRequests[1].units} Units</p>
+
+                  <p>{AllBloodRequests[1].hospital_name}</p>
+                </div>
+              </>
+            ) : (
+              <div
+                className="text-[#A61B1B] w-full h-full flex justify-center  pt-36
+             animate-bounce"
+              >
+                <MdWaterDrop className="scale-[3]" />
+              </div>
+            )}
           </div>
           <div className="w-full flex justify-center items-center ">
             <button className="bg-[#938A8B] px-2  rounded-full  text-white">

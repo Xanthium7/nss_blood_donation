@@ -4,6 +4,7 @@ import Heading from "@/app/components/Heading";
 import React, { useState } from "react";
 import { useRouter } from "next/navigation";
 import { supabase } from "@/utils/supabase/supabaseClient";
+import toast, { Toaster } from "react-hot-toast";
 
 const Page = () => {
   const router = useRouter();
@@ -37,8 +38,16 @@ const Page = () => {
 
   const signUp = async (e) => {
     e.preventDefault(); // Prevent default form submission
+    if (password === "") {
+      toast.error("Password Cant be Empty! ");
+      return;
+    }
     if (password !== conPassword) {
-      console.log("Passwords do not match!");
+      toast.error("Password Donot Match!");
+      return;
+    }
+    if (!email.endsWith("@mgits.ac.in") || email === "") {
+      toast.error("Give a valid MITS mail(@mgits.ac.in)");
       return;
     }
 
@@ -49,6 +58,7 @@ const Page = () => {
 
     if (error) {
       console.log("Error signing up:", error.message);
+      alert(error.message);
     } else {
       // const user = await supabase.auth.getSession();
       // console.log(user);
@@ -61,6 +71,7 @@ const Page = () => {
   };
   return (
     <main className=" px-10 pb-20 flex flex-col  gap-12 h-screen overflow-y-auto">
+      <Toaster position="top-center" reverseOrder={false} />
       <div className="Heading pt-12">
         <Heading heading={"Student Deatils"} />
       </div>
