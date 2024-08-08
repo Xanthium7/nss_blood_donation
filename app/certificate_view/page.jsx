@@ -4,6 +4,7 @@ import React, { useEffect, useState } from "react";
 import Heading from "../components/Heading";
 import { supabase } from "@/utils/supabase/supabaseClient";
 import Certificate from "../components/Certificate";
+import { FaAngleLeft } from "react-icons/fa";
 
 const page = () => {
   const [certifs, setcertifs] = useState();
@@ -38,9 +39,12 @@ const page = () => {
     console.log(certifs);
   }, [certifs]);
   return (
-    <div className="h-screen w-screen">
-      <div className="px-6 pt-5">
-        <Heading heading={"Certificates"} />
+    <div className="h-screen w-screen p-4">
+      <div className="header ">
+        <a href="/">
+          <FaAngleLeft className="scale-[2]" />
+        </a>
+        <Heading heading={"Blood Requests"} />
       </div>
       <div>
         <div className="flex flex-wrap w-full gap-8 pt-14 justify-center items-center">

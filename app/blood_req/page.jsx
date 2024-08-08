@@ -5,6 +5,7 @@ import Heading from "../components/Heading";
 import { supabase } from "@/utils/supabase/supabaseClient";
 // import Button from "../components/Button/Button";
 import { useRouter } from "next/navigation";
+import { FaAngleLeft } from "react-icons/fa";
 
 const page = () => {
   const router = useRouter();
@@ -75,7 +76,12 @@ const page = () => {
 
   return (
     <div className="h-screen p-10 overflow-y-scroll">
-      <Heading heading={"Blood Request "} />
+      <div className="header ">
+        <a href="/">
+          <FaAngleLeft className="scale-[2]" />
+        </a>
+        <Heading heading={"Blood Requests"} />
+      </div>
       <form onSubmit={setReqData} action="post" className="pt-12 space-y-6">
         <div>
           <h1 className="font-bold text-[#1C1B1F]">Name</h1>
