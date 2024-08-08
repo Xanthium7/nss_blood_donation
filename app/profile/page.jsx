@@ -1,5 +1,5 @@
 "use client";
-
+import toast, { Toaster } from "react-hot-toast";
 import React, { useEffect, useState } from "react";
 import { FaAngleLeft } from "react-icons/fa6";
 import { MdModeEdit } from "react-icons/md";
@@ -28,6 +28,7 @@ const page = () => {
         console.log("state: ", users[0]);
       } else {
         console.log("No user found");
+        toast.error("No user found");
       }
     };
 
@@ -40,6 +41,7 @@ const page = () => {
         fetchdata(user.email);
       } else {
         console.log("No user email found");
+        toast.error("No user email found");
       }
     };
 
@@ -65,8 +67,10 @@ const page = () => {
     let { error } = await supabase.auth.signOut();
     if (error) {
       console.log("Error logging out:", error.message);
+      toast.error("Error logging out");
     } else {
       console.log("User logged out successfully");
+      toast.success("User logged out successfully");
       router.replace("/Signup");
     }
   };
@@ -128,6 +132,7 @@ const page = () => {
           </div>
         </div>
       </div>
+      <Toaster position="bottom-center" />
     </div>
   );
 };

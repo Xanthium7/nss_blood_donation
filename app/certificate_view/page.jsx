@@ -1,4 +1,5 @@
 "use client";
+import toast, { Toaster } from "react-hot-toast";
 import React, { useEffect, useState } from "react";
 import Heading from "../components/Heading";
 import { supabase } from "@/utils/supabase/supabaseClient";
@@ -11,13 +12,14 @@ const page = () => {
     const {
       data: { user },
     } = await supabase.auth.getUser();
-    console.log(user.email);
+    //console.log(user.email);
     const { data, error } = await supabase
       .from("certificate_table")
       .select("*")
       .eq("email", user.email);
     if (error) {
       console.log("Error fetching user data:", error.message);
+      toast.error("Error fetching user data");
     } else {
       console.log("User data fetched successfully:", data);
       if (data && data.length > 0) {
@@ -57,6 +59,7 @@ const page = () => {
             ))}
         </div>
       </div>
+      <Toaster position="bottom-center" />
     </div>
   );
 };

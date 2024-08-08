@@ -1,4 +1,5 @@
 "use client";
+import toast, { Toaster } from "react-hot-toast";
 import React from "react";
 import Heading from "@/app/components/Heading";
 import { supabase } from "@/utils/supabase/supabaseClient";
@@ -15,6 +16,7 @@ function Signin() {
     });
     if (error) {
       console.log("Login faild:", error.message);
+      toast.error("Login faild");
     } else {
       console.log("User login successfully:", data);
       router.replace("/");
@@ -57,6 +59,7 @@ function Signin() {
           </button>
         </div>
       </form>
+      <Toaster position="bottom-center" />
     </div>
   );
 }
