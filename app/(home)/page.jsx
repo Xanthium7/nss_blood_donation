@@ -130,7 +130,7 @@ export default function Home() {
         </h1>
         <div className="flex flex-col justify-between h-[80%] w-full ">
           <div className="container h-full w-full flex justify-between items-center px-4 gap-3 py-4">
-            {!loading ? (
+            {!loading && AllBloodRequests.length > 0 ? (
               <>
                 <div
                   className="bg-[#FFFF] p-4 rounded-lg w-1/2 h-full"
