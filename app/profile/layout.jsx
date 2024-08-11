@@ -17,7 +17,7 @@ function profileLayout({ children }) {
     router.push("/");
   };
   const redirect_certif = () => {
-    router.push("/certificate_view");
+    router.push("/blood_camp");
   };
   const redirect_request = () => {
     router.push("/blood_req");
@@ -52,7 +52,7 @@ function profileLayout({ children }) {
               className=" flex flex-col justify-center items-center gap-2 hover:text-[#DC143C]   cursor-pointer  w-24 h-16 rounded-xl transition-all"
             >
               <IoHeartOutline className="scale-[2]" />
-              <h1 className="text-xs">CERTIFICATE</h1>
+              <h1 className="text-xs">BLOOD CAMP</h1>
             </div>
             <div
               onClick={redirect_profile}

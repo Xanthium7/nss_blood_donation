@@ -95,11 +95,13 @@ const page = () => {
             className="w-full h-[50vh] flex justify-center items-center "
             ref={certificate}
           >
-            <Certificate ref={certificate} name={name} />
-          </div>
-
-          <div className="bg-[#c02424] px-3 py-1 rounded-md text-[#f8f0f0] transition-all hover:text-red-600 hover:bg-transparent">
-            <button onClick={handleDownload2}>DOWNLOAD</button>
+            <h1
+              // style={{ "-webkit-text-stroke": "1px #cf0a4c" }}
+              className="text-2xl font-bold text-center text-[#353535] "
+            >
+              THANKU FOR REGISTERING FOR <br />
+              <span className="text-[#f13939] ">BLOOD CAMP </span>
+            </h1>
           </div>
         </div>
       </div>
