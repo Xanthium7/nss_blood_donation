@@ -1,36 +1,61 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# <span style="color: #8B0000;">RUDHIRAM Blood Donation Web App</span>
 
-## Getting Started
+## Overview
 
-First, run the development server:
+<span style="color: #DC143C;">RUDHIRAM</span> is a Next.js Progressive Web App (PWA) designed to facilitate blood donation and requests. The app connects donors with those in need and provides information about blood camps.
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+## Key Features
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+### Home Screen
 
-You can start editing the page by modifying `app/page.js`. The page auto-updates as you edit the file.
+- <span style="color: #B22222;">**REQUEST**</span>: For submitting blood donation requests
+- <span style="color: #B22222;">**BLOOD CAMP**</span>: Information on blood donation camps
+- **Recent Requests**: Displays recent blood donation needs (blood types and units required)
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+### Navigation
 
-## Learn More
+Bottom navigation bar with options:
 
-To learn more about Next.js, take a look at the following resources:
+- <span style="color: #A52A2A;">HOME</span>
+- <span style="color: #A52A2A;">REQUEST</span>
+- <span style="color: #A52A2A;">BLOOD CAMP</span>
+- <span style="color: #A52A2A;">PROFILE</span>
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+### Blood Request Form
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+Allows users to submit requests with details:
 
-## Deploy on Vercel
+- Name
+- Blood Group
+- Number of Units
+- Age
+- Gender
+- Hospital Name
+- Bystander
+- Phone Number
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+### User Profile
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+Displays user information:
+
+- Name
+- Age
+- Blood Group
+- Weight
+- <span style="color: #B22222;">Log Out</span> option
+
+## Additional Features
+
+- Real-time blood request updates
+- Certificate download functionality for NSS (National Service Scheme) organization
+
+## Technical Details
+
+- Built using <span style="color: #000080;">Next.js</span>
+- Implements <span style="color: #000080;">Progressive Web App (PWA)</span> features
+
+---
+
+<div style="background-color: #FFE4E1; padding: 10px; border-radius: 5px;">
+The app aims to streamline the process of blood donation by providing a user-friendly interface for both donors and recipients.
+</div>
