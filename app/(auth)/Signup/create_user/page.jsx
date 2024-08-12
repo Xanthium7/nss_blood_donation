@@ -86,6 +86,7 @@ const Page = () => {
               style={{ "box-shadow": "0px 5px 4px #a7a7a7" }}
             />
           </div>
+          <hr />
           <div>
             <h1 className="font-bold text-[#1C1B1F]">Email</h1>
             <input
@@ -99,6 +100,7 @@ const Page = () => {
               style={{ "box-shadow": "0px 5px 4px #a7a7a7" }}
             />
           </div>
+          <hr />
           <div>
             <h1 className="font-bold text-[#1C1B1F]">Password</h1>
             <input
@@ -112,6 +114,7 @@ const Page = () => {
               style={{ "box-shadow": "0px 5px 4px #a7a7a7" }}
             />
           </div>
+          <hr />
           <div>
             <h1 className="font-bold text-[#1C1B1F]">Confirm Password</h1>
             <input
@@ -125,6 +128,7 @@ const Page = () => {
               style={{ "box-shadow": "0px 5px 4px #a7a7a7" }}
             />
           </div>
+          <hr />
           <div>
             <h1 className="font-bold text-[#1C1B1F]">Phone number</h1>
             <input
@@ -134,6 +138,7 @@ const Page = () => {
               style={{ "box-shadow": "0px 5px 4px #a7a7a7" }}
             />
           </div>
+          <hr />
           <div>
             <h1 className="font-bold text-[#1C1B1F]">Gender</h1>
 
@@ -150,6 +155,7 @@ const Page = () => {
               <option value="other">Other</option>
             </select>
           </div>
+          <hr />
           <div>
             <h1 className="font-bold text-[#1C1B1F]">Blood Group</h1>
             <select
@@ -170,6 +176,7 @@ const Page = () => {
               <option value="O-">O-</option>
             </select>
           </div>
+          <hr />
           <div>
             <h1 className="font-bold text-[#1C1B1F]">Date Of Birth</h1>
             <input
@@ -179,6 +186,7 @@ const Page = () => {
               style={{ "box-shadow": "0px 5px 4px #a7a7a7" }}
             />
           </div>
+          <hr />
           <div>
             <h1 className="font-bold text-[#1C1B1F]">Weight</h1>
             <input
@@ -188,6 +196,7 @@ const Page = () => {
               style={{ "box-shadow": "0px 5px 4px #a7a7a7" }}
             />
           </div>
+
           <div className="flex justify-end">
             <button
               type="submit"

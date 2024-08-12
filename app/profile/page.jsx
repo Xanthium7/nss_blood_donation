@@ -85,7 +85,14 @@ const page = () => {
                 router.replace("/");
               }}
             />
-            <MdModeEdit className="scale-150" />
+            <div
+              className="cursor-pointer"
+              onClick={() => {
+                router.push("/profile_edit");
+              }}
+            >
+              <MdModeEdit className="scale-150" />
+            </div>
           </div>
           <div className="details flex flex-col w-full h-full justify-center items-center gap-5">
             <div className="image_holder w-28 h-28 rounded-full">

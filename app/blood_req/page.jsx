@@ -75,9 +75,9 @@ const page = () => {
   };
 
   return (
-    <div className="h-screen p-10 overflow-y-scroll">
+    <div className="h-screen p-5 overflow-y-scroll">
       <div className="header ">
-        <a href="/">
+        <a href="/" className=" ">
           <FaAngleLeft className="scale-[2]" />
         </a>
         <Heading heading={"Blood Requests"} />
@@ -92,6 +92,7 @@ const page = () => {
             style={{ boxShadow: "0px 5px 4px #a7a7a7" }}
           />
         </div>
+        <hr />
         <div>
           <h1 className="font-bold text-[#1C1B1F]">Blood Group</h1>
           <select
@@ -112,6 +113,7 @@ const page = () => {
             <option value="O-">O-</option>
           </select>
         </div>
+        <hr />
         <div>
           <h1 className="font-bold text-[#1C1B1F]">Number of Units</h1>
           <input
@@ -121,6 +123,7 @@ const page = () => {
             style={{ boxShadow: "0px 5px 4px #a7a7a7" }}
           />
         </div>
+        <hr />
         <div>
           <h1 className="font-bold text-[#1C1B1F]">Age</h1>
           <input
@@ -130,6 +133,7 @@ const page = () => {
             style={{ boxShadow: "0px 5px 4px #a7a7a7" }}
           />
         </div>
+        <hr />
         <div>
           <h1 className="font-bold text-[#1C1B1F]">Gender</h1>
           <select
@@ -145,6 +149,7 @@ const page = () => {
             <option value="other">Other</option>
           </select>
         </div>
+        <hr />
         <div>
           <h1 className="font-bold text-[#1C1B1F]">Hospital Name</h1>
           <input
@@ -154,6 +159,7 @@ const page = () => {
             style={{ boxShadow: "0px 5px 4px #a7a7a7" }}
           />
         </div>
+        <hr />
         <div>
           <h1 className="font-bold text-[#1C1B1F]">Bystander</h1>
           <input
@@ -163,6 +169,7 @@ const page = () => {
             style={{ boxShadow: "0px 5px 4px #a7a7a7" }}
           />
         </div>
+        <hr />
         <div>
           <h1 className="font-bold text-[#1C1B1F]">Phone Number</h1>
           <input
@@ -172,6 +179,7 @@ const page = () => {
             style={{ boxShadow: "0px 5px 4px #a7a7a7" }}
           />
         </div>
+        <hr />
         <div>
           <h1 className="font-bold text-[#1C1B1F]">Send to</h1>
           <select

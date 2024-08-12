@@ -1,7 +1,7 @@
 "use client";
 import React from "react";
 import Heading from "../components/Heading";
-import { FaAngleLeft } from "react-icons/fa6";
+import { FaAngleLeft } from "react-icons/fa";
 import { useRouter } from "next/navigation";
 import { supabase } from "@/utils/supabase/supabaseClient";
 
@@ -20,7 +20,7 @@ const page = () => {
           name: event.target.name.value,
           year_study: event.target.year_study.value,
           branch: event.target.branch.value,
-          date: event.target.date.value,
+          // date: event.target.date.value,
           email: user.email,
         },
       ])
@@ -36,7 +36,7 @@ const page = () => {
     <div className="h-screen w-screen">
       <div className="pt-5">
         <FaAngleLeft
-          className="scale-150 cursor-pointer pl-2"
+          className="scale-[2] cursor-pointer pl-2 font-bold"
           onClick={() => {
             router.replace("/");
           }}
@@ -59,6 +59,7 @@ const page = () => {
                 style={{ boxShadow: "0px 5px 4px #a7a7a7" }}
               />
             </div>
+            <hr />
             <div>
               <h1 className="font-bold text-[#1C1B1F]">Year Of Study</h1>
               <select
@@ -75,6 +76,7 @@ const page = () => {
                 <option value="4">4th</option>
               </select>
             </div>
+            <hr />
             <div>
               <h1 className="font-bold text-[#1C1B1F]">Branch</h1>
               <select
@@ -97,7 +99,8 @@ const page = () => {
                 <option value="MCA">MCA</option>
               </select>
             </div>
-            <div>
+
+            {/* <div>
               <h1 className="font-bold text-[#1C1B1F]">Date</h1>
               <input
                 name="date"
@@ -105,7 +108,7 @@ const page = () => {
                 className=" h-12 w-full rounded-xl mt-2 focus:outline-[#b14141] p-5"
                 style={{ "box-shadow": "0px 5px 4px #a7a7a7" }}
               />
-            </div>
+            </div> */}
 
             <div className="flex justify-center">
               <button

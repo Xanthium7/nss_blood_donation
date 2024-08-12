@@ -37,6 +37,7 @@ function Signin() {
             style={{ "box-shadow": "0px 5px 4px #a7a7a7" }}
           />
         </div>
+        <hr />
         <div className="">
           <h1 className="font-bold text-[#1C1B1F]">Password</h1>
           <input

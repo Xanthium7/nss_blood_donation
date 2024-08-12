@@ -66,7 +66,7 @@ const page = () => {
                     nested
                   >
                     {(close) => (
-                      <div className="modal px-6">
+                      <div className="modal  px-6">
                         <div className="flex justify-end">
                           <button
                             className="close scale-150 pt-5 "
@@ -75,7 +75,7 @@ const page = () => {
                             &times;
                           </button>
                         </div>
-                        <div className="header pt-10 flex flex-col gap-10">
+                        <div className="header pt-2 flex flex-col gap-10">
                           <div className="flex justify-around">
                             <div className="flex flex-col gap-6 ">
                               <h1 className="text-left">Name</h1>
@@ -107,7 +107,7 @@ const page = () => {
                                 {e.gender}
                               </h1>
                               <h1 className="text-right">{e.age}</h1>
-                              <h1 className="text-right h-16">
+                              <h1 className="text-right w-full h-16">
                                 {e.hospital_name}
                               </h1>
                               <h1 className="text-right">{e.bystander}</h1>
@@ -117,12 +117,12 @@ const page = () => {
                           <div className="flex justify-center  ">
                             <a
                               href=""
-                              className="flex gap-2 px-3 py-1 text-lg rounded-full border border-[#20B764]"
+                              className="flex gap-2 px-3 my-1 text-lg rounded-full border border-[#20B764]"
                             >
                               <h1 className="font-medium text-[#494747]">
                                 message
                               </h1>
-                              <FaWhatsapp className="pt-2 scale-150 text-[#20B764]" />
+                              <FaWhatsapp className="mt-2 scale-150 text-[#20B764]" />
                             </a>
                           </div>
                         </div>
