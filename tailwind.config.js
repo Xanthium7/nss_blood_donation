@@ -10,6 +10,9 @@ module.exports = {
       colors:{
         'primary-bg': '#F6F6F6',
       },
+      screens: {
+        'sh': { 'raw': '(max-height: 750px)' },
+      },
       backgroundImage: {
         "gradient-radial": "radial-gradient(var(--tw-gradient-stops))",
         "gradient-conic":
