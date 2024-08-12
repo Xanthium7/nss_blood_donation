@@ -54,9 +54,9 @@ const page = () => {
                 <h1>{e.units} Units</h1>
                 <h1>{e.hospital_name}</h1>
 
-                <div className="flex justify-center pt-2 ">
+                <div className="flex  justify-center pt-2 ">
                   <Popup
-                    className="rounded-xl"
+                    className="rounded-xl "
                     trigger={
                       <button className="bg-[#938A8B] text-white px-3 py-1 rounded-full text-sm">
                         More Details
@@ -66,7 +66,7 @@ const page = () => {
                     nested
                   >
                     {(close) => (
-                      <div className="modal  px-6">
+                      <div className="modal h-full overflow-scroll  px-6">
                         <div className="flex justify-end">
                           <button
                             className="close scale-150 pt-5 "
@@ -75,7 +75,7 @@ const page = () => {
                             &times;
                           </button>
                         </div>
-                        <div className="header pt-2 flex flex-col gap-10">
+                        <div className="header  mt-2 flex flex-col gap-10 relative">
                           <div className="flex justify-around">
                             <div className="flex flex-col gap-6 ">
                               <h1 className="text-left">Name</h1>
@@ -114,10 +114,10 @@ const page = () => {
                               <h1 className="text-right">{e.phone}</h1>
                             </div>
                           </div>
-                          <div className="flex justify-center  ">
+                          <div className="flex  justify-center  ">
                             <a
                               href=""
-                              className="flex gap-2 px-3 my-1 text-lg rounded-full border border-[#20B764]"
+                              className=" flex gap-2 px-3 my-1 text-lg rounded-full border border-[#20B764]"
                             >
                               <h1 className="font-medium text-[#494747]">
                                 message
