@@ -65,7 +65,8 @@ export default function Home() {
   return (
     <div className="h-screen w-screen relative flex flex-col ">
       <Toaster position="top-center" reverseOrder={false} />
-      <div className="banner flex flex-col gap-1 justify-center items-center  bg-[#A61B1B] h-1/5">
+      <div className="banner flex flex-col gap-2 pt-5 items-center  bg-[#A61B1B] h-1/5">
+        <div className="text-white text-sm">NSS UNIT NO:264 INITIATIVE</div>
         <div>
           <h1
             className="text-white text-6xl  font-medium"
@@ -79,11 +80,11 @@ export default function Home() {
           </h1>
         </div>
         <div>
-          <h1 className="font-semibold text-lg">രക്തദാനം മഹാദാനം</h1>
+          <h1 className="font-semibold md:text-lg">രക്തദാനം മഹാദാനം</h1>
         </div>
       </div>
       <div
-        className="COA h-[30vh] mx-6  bg-[##FFFAFA]  shadow-md rounded-lg translate-y-[-2rem] z-30"
+        className="COA py-10 mx-6  bg-[#FFFAFA]  shadow-md rounded-lg translate-y-[-2rem] z-30"
         style={{ "box-shadow": "0px 5px 4px #a7a7a7" }}
       >
         <div className="container w-full h-full flex bg-[#FFFAFA] rounded-lg justify-around items-center">
@@ -91,7 +92,7 @@ export default function Home() {
             onClick={() => {
               router.push("/blood_req");
             }}
-            className="request cursor-pointer  bg-[#FFFF] rounded-lg shadow-md h-[20vh] w-[30vw] flex flex-col gap-2 justify-center items-center"
+            className="request cursor-pointer  bg-[#FFFF] rounded-lg shadow-md h-[18vh] min-w-[35vw] flex flex-col gap-2 justify-center items-center"
             style={{ "box-shadow": "0px 5px 4px #a7a7a7" }}
           >
             <div className="icon max-w-[12vw]  md:max-w-[6vw] ">
@@ -105,7 +106,7 @@ export default function Home() {
             onClick={() => {
               router.push("/blood_camp");
             }}
-            className="Blood Camp bg-[#FFFF] hover:cursor-pointer rounded-lg shadow-md h-[20vh] w-[30vw] flex flex-col gap-2 justify-center items-center"
+            className="Blood Camp bg-[#FFFF] hover:cursor-pointer rounded-lg shadow-md h-[18vh] min-w-[35vw] flex flex-col gap-2 justify-center items-center"
             style={{ "box-shadow": "0px 5px 4px #a7a7a7" }}
           >
             <div className="icon max-w-[20vw] md:max-w-[8vw]  ">
@@ -170,6 +171,14 @@ export default function Home() {
             <button className="bg-[#938A8B] px-2  rounded-full  text-white">
               <a href="/all_requests">See All</a>
             </button>
+          </div>
+          <div className="flex justify-center items-start sh:-translate-y-10 translate-y-10">
+            <Image
+              height={150}
+              width={150}
+              src="/mits.png"
+              alt="mits logo"
+            ></Image>
           </div>
         </div>
       </div>
