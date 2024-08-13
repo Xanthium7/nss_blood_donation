@@ -27,7 +27,7 @@ const page = () => {
         setweight(users[0].weight);
         console.log("state: ", users[0]);
       } else {
-        console.log("No user found");
+        // console.log("No user found");
         toast.error("No user found");
       }
     };
@@ -37,10 +37,10 @@ const page = () => {
         data: { user },
       } = await supabase.auth.getUser();
       if (user && user.email) {
-        console.log(user.email);
+        // console.log(user.email);
         fetchdata(user.email);
       } else {
-        console.log("No user email found");
+        // console.log("No user email found");
         toast.error("No user email found");
       }
     };
@@ -66,10 +66,10 @@ const page = () => {
   const logOut = async () => {
     let { error } = await supabase.auth.signOut();
     if (error) {
-      console.log("Error logging out:", error.message);
+      // console.log("Error logging out:", error.message);
       toast.error("Error logging out");
     } else {
-      console.log("User logged out successfully");
+      // console.log("User logged out successfully");
       toast.success("User logged out successfully");
       router.replace("/Signup");
     }

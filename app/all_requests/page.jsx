@@ -4,7 +4,7 @@ import React from "react";
 import Heading from "../components/Heading";
 import { FaAngleLeft } from "react-icons/fa6";
 import Popup from "reactjs-popup";
-import { FaWhatsapp } from "react-icons/fa6";
+// import { FaWhatsapp } from "react-icons/fa6";
 import { useEffect } from "react";
 import { supabase } from "@/utils/supabase/supabaseClient";
 import { useState } from "react";
@@ -22,7 +22,7 @@ const page = () => {
       console.error("Error fetching blood requests:", error);
     } else {
       setAllBloodRequests(blood_request);
-      console.log("Blood requests:", blood_request);
+      // console.log("Blood requests:", blood_request);
       setLoading(false);
     }
   };

@@ -41,7 +41,7 @@ function Page() {
       if (user && user.email) {
         fetchData(user.email);
       } else {
-        console.log("No user email found");
+        // console.log("No user email found");
         toast.error("No user email found");
       }
     };
@@ -67,7 +67,7 @@ function Page() {
     if (error) {
       console.log(error);
     } else {
-      console.log("User data updated successfully:", data);
+      // console.log("User data updated successfully:", data);
       router.replace("/profile");
     }
   };

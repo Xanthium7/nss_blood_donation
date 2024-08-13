@@ -1,13 +1,13 @@
 "use client";
-import Certificate from "@/app/components/Certificate";
-import Heading from "@/app/components/Heading";
+// import Certificate from "@/app/components/Certificate";
+// import Heading from "@/app/components/Heading";
 import { useRouter } from "next/navigation";
 import React, { useEffect, useRef, useState } from "react";
 import { FaAngleLeft } from "react-icons/fa6";
 import jsPDF from "jspdf";
 import html2canvas from "html2canvas";
 import { supabase } from "@/utils/supabase/supabaseClient";
-import { fetchUser } from "@/utils/apis/api";
+// import { fetchUser } from "@/utils/apis/api";
 
 const page = () => {
   const [email, setEmail] = useState("");
@@ -21,16 +21,16 @@ const page = () => {
       if (error) {
         console.log("ERRORRR: ", error.message);
       } else {
-        console.log(user.email);
+        // console.log(user.email);
         let { data: certificate_table, error1 } = await supabase
           .from("certificate_table")
           .select("*")
           .eq("email", user.email);
         // redirecting user if they havent registered in blood camp
-        console.log("porath", certificate_table[0].name);
+        // console.log("porath", certificate_table[0].name);
         if (typeof certificate_table[0].name == "undefined") {
           router.push("/");
-          console.log("akath", certificate_table[0].name);
+          // console.log("akath", certificate_table[0].name);
         } else {
           let { data: users, error } = await supabase
             .from("users")
@@ -41,7 +41,7 @@ const page = () => {
             console.log("Error fetching user data:", error.message);
           } else {
             setName(users[0].name);
-            console.log("User data fetched successfully:", users[0].name);
+            // console.log("User data fetched successfully:", users[0].name);
           }
         }
       }
@@ -78,6 +78,13 @@ const page = () => {
         console.error("Error generating canvas:", error);
       });
   };
+
+  useEffect(() => {
+    setTimeout(() => {
+      router.replace("/");
+    }, 3000);
+  }, []);
+
   return (
     <div className="h-screen w-screen">
       <div className="pt-5">
@@ -97,10 +104,10 @@ const page = () => {
           >
             <h1
               // style={{ "-webkit-text-stroke": "1px #cf0a4c" }}
-              className="text-2xl font-bold text-center text-[#353535] "
+              className="text-2xl font-bold text-center text-green-500 "
             >
-              THANKU FOR REGISTERING FOR <br />
-              <span className="text-[#f13939] ">BLOOD CAMP </span>
+              REGISTRATION SUCCESSFUL
+              <br />
             </h1>
           </div>
         </div>

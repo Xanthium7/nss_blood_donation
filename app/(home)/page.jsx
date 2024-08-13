@@ -4,7 +4,7 @@ import { useEffect, useState } from "react";
 import { supabase } from "@/utils/supabase/supabaseClient";
 import { useRouter } from "next/navigation";
 import toast, { Toaster } from "react-hot-toast";
-import { MdWaterDrop } from "react-icons/md";
+// import { MdWaterDrop } from "react-icons/md";
 
 export default function Home() {
   const router = useRouter();
@@ -22,7 +22,7 @@ export default function Home() {
     } else {
       setAllBloodRequests(blood_request);
       setLoading(false);
-      console.log("Blood requests:", blood_request);
+      // console.log("Blood requests:", blood_request);
     }
   };
 
@@ -65,7 +65,7 @@ export default function Home() {
   return (
     <div className="h-screen w-screen relative flex flex-col ">
       <Toaster position="top-center" reverseOrder={false} />
-      <div className="banner flex flex-col gap-2 pt-5 items-center  bg-[#A61B1B] h-1/5">
+      <div className="banner flex flex-col gap-1 pt-5 items-center  bg-[#A61B1B] h-1/5">
         <div className="text-white text-sm">NSS UNIT NO:264 INITIATIVE</div>
         <div>
           <h1
