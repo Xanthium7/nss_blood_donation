@@ -27,7 +27,7 @@ const page = () => {
       console.log("Error sending email:", error.message);
       toast.error("Error sending request");
     } else {
-      console.log("Email sent successfully:", data);
+      // console.log("Email sent successfully:", data);
       toast.success("Request sent successfully");
       router.replace("/");
     }
