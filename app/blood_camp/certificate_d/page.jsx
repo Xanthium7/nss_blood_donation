@@ -87,9 +87,9 @@ const page = () => {
             router.replace("/");
           }}
         />
-        <div className="header px-10">
+        {/* <div className="header px-10">
           <Heading heading={"Certificates"} />
-        </div>
+        </div> */}
         <div className="certificate_holder flex flex-col  justify-center items-center  h-[60vh] w-full">
           <div
             className="w-full h-[50vh] flex justify-center items-center "
