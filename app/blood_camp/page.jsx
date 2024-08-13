@@ -22,6 +22,7 @@ const page = () => {
           branch: event.target.branch.value,
           // date: event.target.date.value,
           email: user.email,
+          blood_group: event.target.blood_group.value,
         },
       ])
       .select();
@@ -97,6 +98,26 @@ const page = () => {
                 <option value="EC">EC</option>
 
                 <option value="MCA">MCA</option>
+              </select>
+            </div>
+            <div>
+              <h1 className="font-bold text-[#1C1B1F]">Blood Group</h1>
+              <select
+                name="blood_group"
+                className="h-12 w-full rounded-xl mt-2 focus:outline-[#b14141] pl-4"
+                style={{ "box-shadow": "0px 5px 4px #a7a7a7" }}
+              >
+                <option disabled value="">
+                  Select Blood Group
+                </option>
+                <option value="A+">A+</option>
+                <option value="A-">A-</option>
+                <option value="B+">B+</option>
+                <option value="B-">B-</option>
+                <option value="AB+">AB+</option>
+                <option value="AB-">AB-</option>
+                <option value="O+">O+</option>
+                <option value="O-">O-</option>
               </select>
             </div>
 
