@@ -160,10 +160,11 @@ export default function Home() {
               </>
             ) : (
               <div
-                className="text-[#A61B1B] w-full h-full flex justify-center  pt-36
-             animate-bounce"
+                className="text-[#A61B1B] w-full h-full flex justify-center items-center py-[7vh]
+             "
               >
-                <MdWaterDrop className="scale-[3]" />
+                {/* <MdWaterDrop className="scale-[3]" /> */}
+                <p className="">No Recent Request</p>
               </div>
             )}
           </div>
@@ -172,7 +173,7 @@ export default function Home() {
               <a href="/all_requests">See All</a>
             </button>
           </div>
-          <div className="flex justify-center items-start sh:-translate-y-10 translate-y-10">
+          <div className="flex justify-center items-start sh:-translate-y-15 translate-y-10">
             <Image
               height={150}
               width={150}

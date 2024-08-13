@@ -114,7 +114,7 @@ const page = () => {
                               <h1 className="text-right">{e.phone}</h1>
                             </div>
                           </div>
-                          <div className="flex  justify-center  ">
+                          {/* <div className="flex  justify-center  ">
                             <a
                               href=""
                               className=" flex gap-2 px-3 my-1 text-lg rounded-full border border-[#20B764]"
@@ -124,7 +124,7 @@ const page = () => {
                               </h1>
                               <FaWhatsapp className="mt-2 scale-150 text-[#20B764]" />
                             </a>
-                          </div>
+                          </div> */}
                         </div>
                       </div>
                     )}
