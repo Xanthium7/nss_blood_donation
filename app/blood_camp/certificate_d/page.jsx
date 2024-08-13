@@ -106,7 +106,7 @@ const page = () => {
               // style={{ "-webkit-text-stroke": "1px #cf0a4c" }}
               className="text-2xl font-bold text-center text-green-500 "
             >
-              REGISTRATION SUCCESSFUL
+              Registration Successful
               <br />
             </h1>
           </div>
