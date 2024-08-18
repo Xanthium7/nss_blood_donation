@@ -11,6 +11,7 @@ const Page = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [conPassword, setConPassword] = useState("");
+  const [isSubmiting, setisSubmiting] = useState(false);
 
   const setUserData = async (user, event) => {
     console.log(event.date);
@@ -38,6 +39,7 @@ const Page = () => {
 
   const signUp = async (e) => {
     e.preventDefault(); // Prevent default form submission
+    setisSubmiting(true);
     if (password === "") {
       toast.error("Password Cant be Empty! ");
       return;
@@ -200,6 +202,7 @@ const Page = () => {
           <div className="flex justify-end">
             <button
               type="submit"
+              disabled={isSubmiting}
               className="bg-[#A61B1B] w-fit text-white px-3 py-1 rounded-full  "
             >
               Submit
