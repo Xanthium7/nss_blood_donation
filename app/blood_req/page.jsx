@@ -1,6 +1,6 @@
 "use client";
 import toast, { Toaster } from "react-hot-toast";
-import React from "react";
+import React, { useState } from "react";
 import Heading from "../components/Heading";
 import { supabase } from "@/utils/supabase/supabaseClient";
 // import Button from "../components/Button/Button";
@@ -9,7 +9,7 @@ import { FaAngleLeft } from "react-icons/fa";
 
 const page = () => {
   const router = useRouter();
-
+  const [isSubmiting, setisSubmiting] = useState(false);
   const sendEmail = async (e) => {
     // console.log(e);
     const { data, error } = await supabase.functions.invoke("hello-world", {
@@ -35,6 +35,7 @@ const page = () => {
 
   const setReqData = async (event) => {
     event.preventDefault();
+    setisSubmiting(true);
     const {
       data: { user },
     } = await supabase.auth.getUser();
@@ -204,6 +205,7 @@ const page = () => {
         <div>
           <button
             type="submit"
+            disabled={isSubmiting}
             className="h-12 w-full rounded-xl bg-[#b14141] text-white font-bold mt-6"
             style={{ boxShadow: "0px 5px 4px #a7a7a7" }}
           >

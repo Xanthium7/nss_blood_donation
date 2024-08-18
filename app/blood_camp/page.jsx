@@ -1,5 +1,5 @@
 "use client";
-import React from "react";
+import React, { useState } from "react";
 import Heading from "../components/Heading";
 import { FaAngleLeft } from "react-icons/fa";
 import { useRouter } from "next/navigation";
@@ -7,12 +7,14 @@ import { supabase } from "@/utils/supabase/supabaseClient";
 
 const page = () => {
   const router = useRouter();
+  const [isSubmiting, setisSubmiting] = useState(false);
   const setReqData = async (event) => {
     event.preventDefault();
+    setisSubmiting(true);
     const {
       data: { user },
     } = await supabase.auth.getUser();
-    console.log(user.email);
+    // console.log(user.email);
     const { data, error } = await supabase
       .from("certificate_table")
       .insert([
@@ -134,6 +136,7 @@ const page = () => {
             <div className="flex justify-center">
               <button
                 type="submit"
+                disabled={isSubmiting}
                 className="bg-[#A61B1B] w-fit text-white px-4 py-2 rounded-full  "
               >
                 Register
